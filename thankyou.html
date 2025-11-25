@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <title>謝謝你的填寫｜유유 / 姓名牌訂製</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --pink: #ff8fb7;
+      --pink-dark: #ff5c9b;
+      --bg: #fff5fa;
+      --card-bg: #ffffff;
+      --text-main: #333333;
+      --text-soft: #7b5771;
+      --radius-lg: 18px;
+      --shadow-soft: 0 10px 25px rgba(0, 0, 0, 0.06);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Noto Sans TC",
+        "Microsoft JhengHei", sans-serif;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: radial-gradient(circle at top, #ffe8f4 0, #fff5fa 40%, #ffffff 100%);
+      color: var(--text-main);
+    }
+    .wrap {
+      max-width: 420px;
+      width: 100%;
+      padding: 20px;
+    }
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+      padding: 26px 22px 22px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .badge {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, #fff, #ffe1f3 55%, #ffb7d5 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      color: #ff4f93;
+      margin: 0 auto 12px;
+      font-weight: 700;
+    }
+    h1 {
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 6px;
+      color: #ff4f93;
+    }
+    .subtitle {
+      font-size: 13px;
+      color: var(--text-soft);
+      margin-bottom: 16px;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: #fff5fb;
+      font-size: 11px;
+      color: #b15a86;
+      margin-bottom: 18px;
+    }
+    .pill span {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #ff8fb7;
+    }
+    .text {
+      font-size: 13px;
+      color: var(--text-main);
+      margin-bottom: 16px;
+      text-align: left;
+      line-height: 1.7;
+    }
+    .note {
+      font-size: 11px;
+      color: #a27394;
+      text-align: left;
+      margin-bottom: 18px;
+    }
+    .btn-row {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      padding: 9px 14px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #ff8fb7, #ff5c9b);
+      color: #fff;
+      box-shadow: 0 7px 16px rgba(255, 107, 150, 0.4);
+    }
+    .btn-secondary {
+      background: #fff7fb;
+      color: #ff4f93;
+      border: 1px solid #ffd4e6;
+    }
+    footer {
+      margin-top: 10px;
+      text-align: center;
+      font-size: 10px;
+      color: #b98aa4;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <div class="badge">유</div>
+      <h1>收到你的訂單囉！</h1>
+      <p class="subtitle">謝謝你選擇 <strong>유유 / 姓名牌訂製</strong> 一起應援喜歡的他 ✨</p>
+
+      <div class="pill">
+        <span></span>
+        <div>我會在 1–2 個工作天內回覆金額與匯款資訊</div>
+      </div>
+
+      <div class="text">
+        <p>接下來會依你在表單中的資料，幫你確認：</p>
+        <ul style="margin: 6px 0 0 18px; padding: 0; font-size: 13px;">
+          <li>文字內容是否清楚、是否需要調整</li>
+          <li>尺寸、底材、字體編號與加購項目</li>
+          <li>演唱會日期是否來得及製作與寄送</li>
+        </ul>
+      </div>
+
+      <p class="note">
+        若你在 <strong>2 天內沒有收到回覆</strong>，有可能是信件跑到垃圾信件匣，<br />
+        可以主動到 IG 私訊 <strong>유유</strong> 再提醒我一次，避免漏單。
+      </p>
+
+      <div class="btn-row">
+        <a class="btn btn-primary" href="https://www.instagram.com/_lyyuu.22/" target="_blank">
+          前往 IG 小盒子聯絡我
+        </a>
+        <a class="btn btn-secondary" href="index.html">
+          回到首頁看看其他資訊
+        </a>
+      </div>
+    </div>
+    <footer>© 2025 유유 / 姓名牌訂製</footer>
+  </div>
+</body>
+</html>
