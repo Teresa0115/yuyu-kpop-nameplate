@@ -1,0 +1,1236 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <title>유유 / 姓名牌訂製｜演唱會反光應援牌客製服務</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    /* ===== 全站基本設定 ===== */
+    :root {
+      --bg-main: #fffafc;
+      --bg-card: #ffffff;
+      --bg-accent: #ffe4f1;
+      --bg-accent-light: #fff1fb;
+      --text-main: #333333;
+      --text-soft: #666666;
+      --pink: #ff8fb7;
+      --pink-dark: #ff5c9b;
+      --mint: #8ad7d1;
+      --shadow-soft: 0 8px 20px rgba(0, 0, 0, 0.05);
+      --radius-lg: 18px;
+      --radius-pill: 999px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Noto Sans TC",
+        "Microsoft JhengHei", sans-serif;
+      background: radial-gradient(circle at top,
+        #ffeaf5 0, #fffafc 40%, #ffffff 100%);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .wrapper {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 16px 16px 72px;
+    }
+
+    section {
+      margin-bottom: 40px;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+      padding: 20px 20px 24px;
+    }
+
+    /* ===== 導覽列 ===== */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(12px);
+      background: linear-gradient(
+        to bottom,
+        rgba(255, 244, 252, 0.95),
+        rgba(255, 244, 252, 0.75)
+      );
+      border-bottom: 1px solid rgba(255, 182, 193, 0.35);
+    }
+
+    .nav {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 16px;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .logo-text {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--pink-dark);
+    }
+
+    .logo-badge {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 30% 30%, #fff, #ffe1f3 55%, #ffb7d5 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 17px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 10px;
+      font-size: 13px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a {
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(255, 182, 193, 0.35);
+      transition: background 0.15s ease, transform 0.15s ease;
+    }
+
+    .nav-links a:hover {
+      background: #ffe7f4;
+      transform: translateY(-1px);
+    }
+
+    /* ===== 首屏 Hero ===== */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 20px;
+      align-items: center;
+    }
+
+    .hero-title {
+      font-size: clamp(24px, 4vw, 30px);
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      margin-bottom: 10px;
+      color: #ff4f93;
+    }
+
+    .hero-subtitle {
+      font-size: 14px;
+      color: var(--text-soft);
+      margin-bottom: 18px;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+      font-size: 12px;
+    }
+
+    .tag {
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      background: var(--bg-accent-light);
+      border: 1px dashed rgba(255, 140, 186, 0.5);
+      color: #d9548b;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .btn-primary {
+      padding: 9px 18px;
+      border-radius: var(--radius-pill);
+      border: none;
+      background: linear-gradient(135deg, #ff8fb7, #ff5c9b);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 6px 14px rgba(255, 109, 151, 0.45);
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 9px 20px rgba(255, 109, 151, 0.55);
+    }
+
+    .btn-secondary {
+      padding: 8px 14px;
+      border-radius: var(--radius-pill);
+      border: 1px solid #ffc3dd;
+      background: rgba(255, 255, 255, 0.9);
+      font-size: 13px;
+      color: #ff4f93;
+      text-decoration: none;
+    }
+
+    .hero-note {
+      margin-top: 6px;
+      font-size: 11px;
+      color: var(--text-soft);
+    }
+
+    .hero-visual {
+      position: relative;
+      padding: 18px;
+    }
+
+    .hero-card {
+      background: var(--bg-card);
+      border-radius: 22px;
+      padding: 14px 16px;
+      box-shadow: 0 8px 20px rgba(255, 130, 180, 0.35);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-nameplate {
+      height: 80px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #111, #404050);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 26px;
+      font-weight: 900;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-nameplate::before {
+      content: "";
+      position: absolute;
+      left: -40%;
+      top: -50%;
+      width: 60%;
+      height: 200%;
+      background: linear-gradient(
+        120deg,
+        rgba(255, 255, 255, 0),
+        rgba(255, 255, 255, 0.6),
+        rgba(255, 255, 255, 0)
+      );
+      transform: rotate(15deg);
+      animation: shimmer 3s infinite;
+    }
+
+    @keyframes shimmer {
+      0% {
+        transform: translateX(-120%) rotate(15deg);
+      }
+      70% {
+        transform: translateX(220%) rotate(15deg);
+      }
+      100% {
+        transform: translateX(220%) rotate(15deg);
+      }
+    }
+
+    .hero-sparkles {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.5) 0, transparent 40%),
+        radial-gradient(circle at 80% 50%, rgba(255, 255, 255, 0.4) 0, transparent 45%),
+        radial-gradient(circle at 40% 85%, rgba(255, 255, 255, 0.5) 0, transparent 40%);
+      opacity: 0.8;
+      mix-blend-mode: screen;
+    }
+
+    .hero-pill {
+      margin-top: 10px;
+      font-size: 11px;
+      padding: 6px 10px;
+      border-radius: var(--radius-pill);
+      background: #fff6fb;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #ff6a9c;
+    }
+
+    .hero-pill span {
+      display: inline-block;
+      border-radius: 50%;
+      width: 6px;
+      height: 6px;
+      background: #ff6a9c;
+    }
+
+    /* ===== 區塊標題 ===== */
+    .section-title {
+      font-size: 18px;
+      font-weight: 800;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .section-title::before {
+      content: "★";
+      color: var(--pink);
+      font-size: 16px;
+    }
+
+    .section-desc {
+      font-size: 13px;
+      color: var(--text-soft);
+      margin-bottom: 10px;
+    }
+
+    /* ===== 注意事項 ===== */
+    .notice-list {
+      list-style: none;
+      font-size: 13px;
+      color: var(--text-soft);
+      display: grid;
+      gap: 6px;
+    }
+
+    .notice-list li {
+      display: flex;
+      gap: 6px;
+      align-items: flex-start;
+    }
+
+    .notice-bullet {
+      margin-top: 5px;
+      font-size: 12px;
+      color: #f7b1d0;
+    }
+
+    .notice-highlight {
+      color: #e74c3c;
+      font-weight: 600;
+    }
+
+    /* ===== 訂購流程 ===== */
+    .steps {
+      display: grid;
+      gap: 10px;
+      font-size: 13px;
+    }
+
+    .step-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .step-number {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--bg-accent);
+      color: #ff4f93;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .step-title {
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .step-text {
+      color: var(--text-soft);
+    }
+
+    .step-note {
+      margin-top: 6px;
+      font-size: 11px;
+      color: #b47a9b;
+      padding: 8px 10px;
+      border-radius: 10px;
+      background: #fff3fb;
+    }
+
+    /* ===== 材質款式 ===== */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .material-card {
+      border-radius: 14px;
+      background: #fff8fd;
+      padding: 12px 12px 14px;
+      border: 1px dashed #ffcde4;
+    }
+
+    .material-title {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 4px;
+      color: #ff4f93;
+    }
+
+    .material-tagline {
+      font-size: 11px;
+      color: #b47a9b;
+      margin-bottom: 6px;
+    }
+
+    .material-list {
+      font-size: 12px;
+      color: var(--text-soft);
+      padding-left: 16px;
+    }
+
+    /* ===== 價格表 ===== */
+    .price-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      font-size: 13px;
+    }
+
+    .price-card {
+      border-radius: 14px;
+      background: #fff8fb;
+      padding: 12px 12px 14px;
+      border: 1px solid #ffe0f0;
+    }
+
+    .price-title {
+      font-weight: 700;
+      color: #ff4f93;
+      margin-bottom: 4px;
+    }
+
+    .price-sub {
+      font-size: 11px;
+      color: var(--text-soft);
+      margin-bottom: 6px;
+    }
+
+    .price-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      margin-bottom: 6px;
+    }
+
+    .price-table th,
+    .price-table td {
+      padding: 4px 0;
+    }
+
+    .price-table th {
+      font-weight: 600;
+      color: #444;
+      text-align: left;
+    }
+
+    .price-table td:last-child {
+      text-align: right;
+      font-weight: 700;
+      color: #ff4f93;
+    }
+
+    .price-note {
+      font-size: 11px;
+      color: var(--text-soft);
+    }
+
+    /* ===== 加購項目 ===== */
+    .addon-list {
+      list-style: none;
+      font-size: 13px;
+      color: var(--text-soft);
+      display: grid;
+      gap: 6px;
+    }
+
+    .addon-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: #fff6fb;
+    }
+
+    .addon-name {
+      font-weight: 500;
+    }
+
+    .addon-desc {
+      font-size: 11px;
+      color: #b47a9b;
+      margin-left: 4px;
+    }
+
+    .addon-price {
+      font-weight: 700;
+      color: #ff4f93;
+      font-size: 13px;
+    }
+
+    /* ===== 字體展示 ===== */
+    .font-section {
+      display: grid;
+      gap: 12px;
+      font-size: 13px;
+    }
+
+    .font-group-title {
+      font-weight: 700;
+      color: #ff4f93;
+      margin-bottom: 4px;
+    }
+
+    .font-note {
+      font-size: 11px;
+      color: var(--text-soft);
+      margin-bottom: 4px;
+    }
+
+    .font-sample-list {
+      list-style: none;
+      display: grid;
+      gap: 4px;
+    }
+
+    .font-sample-list li {
+      padding: 4px 8px;
+      border-radius: 10px;
+      background: #fff6fb;
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .font-label {
+      font-size: 11px;
+      color: #b47a9b;
+      flex-shrink: 0;
+      width: 30px;
+    }
+
+    /* ===== FormSubmit 訂購表單 ===== */
+    .order-cta {
+      padding: 22px 18px 18px;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, #ffe4f1, #ffeef9);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .order-title {
+      font-weight: 800;
+      font-size: 18px;
+      margin-bottom: 6px;
+      color: #ff3f8c;
+      text-align: center;
+    }
+
+    .order-text {
+      font-size: 13px;
+      color: #884b6d;
+      margin-bottom: 14px;
+      text-align: center;
+    }
+
+    .order-form {
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 14px 14px 16px;
+      box-shadow: 0 4px 10px rgba(255, 160, 196, 0.25);
+    }
+
+    .form-grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px 14px;
+    }
+
+    .form-row {
+      margin-bottom: 10px;
+    }
+
+    label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 4px;
+      color: #743a58;
+    }
+
+    .hint {
+      font-size: 11px;
+      color: #b47a9b;
+      margin-top: 2px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="date"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 6px 8px;
+      border-radius: 8px;
+      border: 1px solid #ffd1e7;
+      font-size: 13px;
+      font-family: inherit;
+      outline: none;
+      background: #fffafc;
+    }
+
+    textarea {
+      min-height: 70px;
+      resize: vertical;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: #ff8fb7;
+      box-shadow: 0 0 0 1px rgba(255, 143, 183, 0.4);
+      background: #ffffff;
+    }
+
+    .addons-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 12px;
+      font-size: 12px;
+    }
+
+    .addons-group label {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-weight: 500;
+      margin-bottom: 0;
+    }
+
+    .agree-row {
+      font-size: 12px;
+      color: #884b6d;
+      margin: 8px 0 10px;
+    }
+
+    .agree-row input {
+      margin-right: 4px;
+    }
+
+    .btn-submit {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 9px 18px;
+      border-radius: var(--radius-pill);
+      border: none;
+      background: linear-gradient(135deg, #ff8fb7, #ff5c9b);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 6px 14px rgba(255, 109, 151, 0.45);
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
+      width: 100%;
+    }
+
+    .btn-submit:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 9px 20px rgba(255, 109, 151, 0.55);
+    }
+
+    .order-note {
+      font-size: 11px;
+      color: #a3688c;
+      margin-top: 8px;
+      text-align: center;
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      text-align: center;
+      font-size: 11px;
+      color: #bb8ca5;
+      padding: 10px 16px 18px;
+    }
+
+    /* ===== RWD ===== */
+    @media (max-width: 720px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-visual {
+        order: -1;
+      }
+
+      .grid-2,
+      .price-grid,
+      .form-grid-2 {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        justify-content: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- 導覽列 -->
+  <header>
+    <div class="nav">
+      <div class="logo-text">
+        <div class="logo-badge">유</div>
+        <span>유유 / 姓名牌訂製</span>
+      </div>
+      <nav class="nav-links">
+        <a href="#about">關於服務</a>
+        <a href="#notice">注意事項</a>
+        <a href="#flow">訂購流程</a>
+        <a href="#styles">款式材質</a>
+        <a href="#price">價目表</a>
+        <a href="#order">線上訂購</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrapper">
+    <!-- Hero -->
+    <section class="card" id="top">
+      <div class="hero">
+        <div>
+          <h1 class="hero-title">유유 / 姓名牌訂製・演唱會反光應援牌</h1>
+          <p class="hero-subtitle">
+            手工排版＋反光材質，讓偶像一抬頭就看到你。支援韓文 / 日文 / 中文，
+            可以一起討論字句、配色與風格，適合出國追星、機場接機、台灣場應援。
+          </p>
+
+          <div class="hero-tags">
+            <span class="tag">手工製作｜少量接單</span>
+            <span class="tag">韓文 / 日文姓名＋短句</span>
+            <span class="tag">反光紙 / 反光布 / 特效款</span>
+          </div>
+
+          <div class="hero-actions">
+            <a class="btn-primary" href="#order">填單預約 💌</a>
+            <a class="btn-secondary" href="https://www.instagram.com/你的IG帳號/" target="_blank">
+              IG 小盒子聯絡我
+            </a>
+          </div>
+          <p class="hero-note">
+            建議至少於演唱會 <strong>2 週前</strong> 預約，以免排單額滿。
+          </p>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="hero-card">
+            <div class="hero-nameplate">
+              <span>YUYU</span>
+              <div class="hero-sparkles"></div>
+            </div>
+            <div class="hero-pill">
+              <span></span> 反光效果示意：實際成品依材質略有差異
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 關於服務 -->
+    <section id="about">
+      <div class="card">
+        <h2 class="section-title">關於 유유 / 姓名牌訂製</h2>
+        <p class="section-desc">
+          每一塊姓名牌都是 손으로 만드는（手工製作），從字型搭配、底色材質到裝飾細節，
+          都會依照你的偶像、服裝顏色與應援風格討論後再設計。
+        </p>
+        <ul class="notice-list">
+          <li>
+            <span class="notice-bullet">★</span>
+            <span>適用場合：韓國 / 台灣演唱會、出國追星、機場接機、粉絲應援活動。</span>
+          </li>
+          <li>
+            <span class="notice-bullet">★</span>
+            <span>支援語言：韓文、日文、中文、英文簡短字樣皆可。</span>
+          </li>
+          <li>
+            <span class="notice-bullet">★</span>
+            <span>如果不知道要寫什麼，也可以跟我說你的偶像＋想要的感覺，我會給你句子建議。</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 注意事項 -->
+    <section id="notice">
+      <div class="card">
+        <h2 class="section-title">下單前請先閱讀注意事項</h2>
+        <ul class="notice-list">
+          <li>
+            <span class="notice-bullet">★</span>
+            <span>所有商品皆為 <strong>手工製作</strong>，可能會有細微手作痕跡，完美主義者請斟酌下單。</span>
+          </li>
+          <li>
+            <span class="notice-bullet">★</span>
+            <span>目前僅接受 <strong>匯款 / ATM 轉帳</strong>，確認款項後才會排單製作。</span>
+          </li>
+          <li>
+            <span class="notice-bullet">★</span>
+            <span>製作＋出貨時間約 <strong>7–14 天</strong>（不含物流），遇演唱會檔期可能會拉長。</span>
+          </li>
+          <li>
+            <span class="notice-bullet">★</span>
+            <span>出貨採便利商店 / 宅配寄送，運費依實際結帳為主。</span>
+          </li>
+          <li>
+            <span class="notice-bullet">★</span>
+            <span>若需 <strong>7 日內到貨</strong>，請先私訊詢問是否能插單，如可安排會酌收急件費。</span>
+          </li>
+          <li>
+            <span class="notice-bullet">★</span>
+            <span>常態配色將提供幾組建議色（銀 / 粉 / 藍 / 紅 / 白…），若有特別主題也可於備註討論。</span>
+          </li>
+          <li>
+            <span class="notice-bullet">★</span>
+            <span>可提供他牌作品或 Pinterest 圖作為 <strong>風格參考</strong>，但不接受一模一樣的仿作。</span>
+          </li>
+          <li>
+            <span class="notice-bullet">★</span>
+            <span>會提供排版或覆膜 / 反光效果預覽圖供確認，<span class="notice-highlight">確認後即不再接受更改</span>。</span>
+          </li>
+          <li>
+            <span class="notice-bullet">★</span>
+            <span>姓名牌屬 <strong>客製商品</strong>，除重大瑕疵外恕不退換貨。</span>
+          </li>
+          <li>
+            <span class="notice-bullet">★</span>
+            <span>未成年人請先與家長溝通，確認可購買後再下單。</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 訂購流程 -->
+    <section id="flow">
+      <div class="card">
+        <h2 class="section-title">訂購流程</h2>
+        <div class="steps">
+          <div class="step-item">
+            <div class="step-number">1</div>
+            <div>
+              <div class="step-title">閱讀注意事項＆看好價目表</div>
+              <p class="step-text">
+                請先確認可以接受手作痕跡、出貨天數與價格，再進入填單流程。
+              </p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-number">2</div>
+            <div>
+              <div class="step-title">想好文字 / 尺寸 / 款式</div>
+              <p class="step-text">
+                例如：<br />
+                ・ 韓文姓名＋愛心<br />
+                ・ A4 反光布＋流沙星星底<br />
+                ・ 想走可愛粉系 or 酷帥黑系
+              </p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-number">3</div>
+            <div>
+              <div class="step-title">填寫線上訂購表單</div>
+              <p class="step-text">
+                依照表單填入：文字內容、尺寸、材質、字體編號、加購項目與收件資料。
+              </p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-number">4</div>
+            <div>
+              <div class="step-title">回覆確認＋匯款</div>
+              <p class="step-text">
+                我會在 1–2 個工作天內回覆總金額與匯款資訊，請於期限內完成匯款並回傳帳號後五碼。
+              </p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-number">5</div>
+            <div>
+              <div class="step-title">排版預覽＆調整</div>
+              <p class="step-text">
+                會提供預覽圖（含字型與大致配色），此階段可提出小幅度修改，確認後便會正式製作。
+              </p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-number">6</div>
+            <div>
+              <div class="step-title">製作完成＆出貨</div>
+              <p class="step-text">
+                成品完成後會先拍照給你確認，沒問題就安排寄出，並提供託運單號。
+              </p>
+            </div>
+          </div>
+        </div>
+        <p class="step-note">
+          ※ 預覽圖主要用來確認排版與感覺，螢幕與實際材質會有色差，實品以實際收到為主唷！
+        </p>
+      </div>
+    </section>
+
+    <!-- 款式與材質 -->
+    <section id="styles">
+      <div class="card">
+        <h2 class="section-title">反光效果＆底材款式介紹</h2>
+        <p class="section-desc">
+          下單時可以在表單中選擇想要的反光材質與底圖風格，如有其它想法也可以備註告訴我。
+        </p>
+
+        <div class="grid-2">
+          <div class="material-card">
+            <h3 class="material-title">反光紙</h3>
+            <p class="material-tagline">適合：想要整塊亮、舞台燈一打就超明顯</p>
+            <ul class="material-list">
+              <li>日常看起來偏白色</li>
+              <li>反光效果強烈，拍照也很顯眼</li>
+              <li>光源直射時字樣清楚、存在感超高</li>
+            </ul>
+          </div>
+
+          <div class="material-card">
+            <h3 class="material-title">反光布</h3>
+            <p class="material-tagline">適合：想要低調一點、近看質感好的風格</p>
+            <ul class="material-list">
+              <li>日常為深灰色布面</li>
+              <li>反光效果較柔和，但在燈光下仍然亮眼</li>
+              <li>布面質感佳，適合酷帥風或深色字樣</li>
+            </ul>
+          </div>
+
+          <div class="material-card">
+            <h3 class="material-title">流沙星星款</h3>
+            <p class="material-tagline">滿滿星星閃片，像星空灑在姓名牌上</p>
+            <ul class="material-list">
+              <li>底色會有許多細小星星亮片</li>
+              <li>舞台燈光照射時會有閃爍流動感</li>
+              <li>適合夢幻、華麗或宇宙感主題</li>
+            </ul>
+          </div>
+
+          <div class="material-card">
+            <h3 class="material-title">愛心款</h3>
+            <p class="material-tagline">彩色愛心散佈在底面，戀愛感滿滿</p>
+            <ul class="material-list">
+              <li>底色充滿大小不一的彩色愛心</li>
+              <li>搭配粉色、紫色系字樣非常可愛</li>
+              <li>適合推本命 / 情侶應援牌</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 字體款式 -->
+    <section id="fonts">
+      <div class="card">
+        <h2 class="section-title">字體款式選擇</h2>
+        <div class="font-section">
+          <div>
+            <div class="font-group-title">韓文字體</div>
+            <p class="font-note">下單時只要在表單填寫「韓文字體：3 號」即可。</p>
+            <ul class="font-sample-list">
+              <li><span class="font-label">1 號</span><span>처음부터 잘하는 사람 없잖아</span></li>
+              <li><span class="font-label">2 號</span><span>처음부터 잘하는 사람 없잖아</span></li>
+              <li><span class="font-label">3 號</span><span>처음부터 잘하는 사람 없잖아</span></li>
+              <li><span class="font-label">4 號</span><span>처음부터 잘하는 사람 없잖아</span></li>
+              <li><span class="font-label">5 號</span><span>처음부터 잘하는 사람 없잖아</span></li>
+              <li><span class="font-label">6 號</span><span>처음부터 잘하는 사람 없잖아</span></li>
+              <li><span class="font-label">7 號</span><span>처음부터 잘하는 사람 없잖아</span></li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="font-group-title">日文字體</div>
+            <p class="font-note">日文應援句也可以～例如：きっと うまくいくよ。</p>
+            <ul class="font-sample-list">
+              <li><span class="font-label">1 號</span><span>きっと うまくいくよ</span></li>
+              <li><span class="font-label">2 號</span><span>きっと うまくいくよ</span></li>
+              <li><span class="font-label">3 號</span><span>きっと うまくいくよ</span></li>
+              <li><span class="font-label">4 號</span><span>きっと うまくいくよ</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 價目表＆加購 -->
+    <section id="price">
+      <div class="card">
+        <h2 class="section-title">價目表＆加購項目</h2>
+
+        <div class="price-grid">
+          <!-- 反光姓名牌 -->
+          <div class="price-card">
+            <h3 class="price-title">反光姓名牌</h3>
+            <p class="price-sub">含：字樣設計＋基本配色＋硬紙板＋繩帶</p>
+            <table class="price-table">
+              <tr>
+                <th>尺寸</th>
+                <th></th>
+                <th>價格</th>
+              </tr>
+              <tr>
+                <td>A4</td>
+                <td>單面</td>
+                <td>$350</td>
+              </tr>
+              <tr>
+                <td>A5</td>
+                <td>單面</td>
+                <td>$300</td>
+              </tr>
+            </table>
+            <p class="price-note">
+              反光紙 / 反光布皆可選，雙面或特殊造型可另行報價。
+            </p>
+          </div>
+
+          <!-- 覆膜姓名牌 -->
+          <div class="price-card">
+            <h3 class="price-title">覆膜姓名牌</h3>
+            <p class="price-sub">含：覆膜處理＋基本底圖＋硬紙板＋繩帶</p>
+            <table class="price-table">
+              <tr>
+                <th>尺寸</th>
+                <th></th>
+                <th>價格</th>
+              </tr>
+              <tr>
+                <td>A4</td>
+                <td>單面</td>
+                <td>$280</td>
+              </tr>
+              <tr>
+                <td>A5</td>
+                <td>單面</td>
+                <td>$220</td>
+              </tr>
+            </table>
+            <p class="price-note">
+              若需特別主題底圖或插畫，可於備註說明，視複雜度加價。
+            </p>
+          </div>
+        </div>
+
+        <h3 class="section-title" style="margin-top:18px;">其他加購項目</h3>
+        <ul class="addon-list">
+          <li class="addon-item">
+            <div>
+              <span class="addon-name">動物耳（黑 / 白）</span>
+              <span class="addon-desc">貓耳 / 狗耳 / 兔耳 一對</span>
+            </div>
+            <span class="addon-price">+ $15</span>
+          </li>
+          <li class="addon-item">
+            <div>
+              <span class="addon-name">緞帶花邊</span>
+              <span class="addon-desc">姓名牌外框一圈</span>
+            </div>
+            <span class="addon-price">+ $20</span>
+          </li>
+          <li class="addon-item">
+            <div>
+              <span class="addon-name">閃粉泡沫紙</span>
+              <span class="addon-desc">底層增加閃粉立體效果</span>
+            </div>
+            <span class="addon-price">+ $20</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- FormSubmit 訂購表單 -->
+    <section id="order">
+      <div class="order-cta">
+        <h2 class="order-title">我要客製我的應援姓名牌</h2>
+        <p class="order-text">
+          請確認已閱讀「注意事項」與「價目表」，再填寫以下訂購表單。<br />
+          送出後會寄信到我的信箱，我會在 1–2 個工作天內回覆你 💌
+        </p>
+
+        <form
+          class="order-form"
+          action="https://formsubmit.co/luck5858@gmail.com"
+          method="POST"
+        >
+          <!-- FormSubmit 設定：成功跳轉頁面（請自行把網址改成你自己的 thankyou.html） -->
+          <input type="hidden" name="_next" value="https://teresa0115.github.io/thankyou.html" />
+          <input type="hidden" name="_subject" value="유유 / 姓名牌訂製：有新的訂單" />
+          <input type="hidden" name="_captcha" value="false" />
+
+          <div class="form-grid-2">
+            <div class="form-row">
+              <label for="name">訂購人姓名 *</label>
+              <input type="text" id="name" name="訂購人姓名" required />
+            </div>
+            <div class="form-row">
+              <label for="email">Email（收匯款資訊） *</label>
+              <input type="email" id="email" name="Email" required />
+            </div>
+            <div class="form-row">
+              <label for="contact">IG 帳號 / 其他聯絡方式 *</label>
+              <input type="text" id="contact" name="聯絡方式" required />
+              <p class="hint">例如：@xxxx / Line ID / 手機號碼</p>
+            </div>
+            <div class="form-row">
+              <label for="idol">應援對象（團體 / 成員） *</label>
+              <input type="text" id="idol" name="應援對象" required />
+              <p class="hint">例如：Seventeen Hoshi、NewJeans Minji</p>
+            </div>
+            <div class="form-row">
+              <label for="concert-date">演唱會日期 *</label>
+              <input type="date" id="concert-date" name="演唱會日期" required />
+            </div>
+            <div class="form-row">
+              <label for="concert-place">演唱會地點 *</label>
+              <input type="text" id="concert-place" name="演唱會地點" required />
+              <p class="hint">例如：韓國 KSPO DOME / 台北小巨蛋</p>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <label for="content">姓名牌文字內容 *</label>
+            <textarea id="content" name="姓名牌文字內容" required></textarea>
+            <p class="hint">可以寫多一點，我會幫你整理排版。若需要我幫忙想句子也可以說明。</p>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-row">
+              <label for="size">尺寸 *</label>
+              <select id="size" name="尺寸" required>
+                <option value="">— 請選擇 —</option>
+                <option value="A4">A4</option>
+                <option value="A5">A5</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <label for="material">底材 / 效果 *</label>
+              <select id="material" name="底材 / 效果" required>
+                <option value="">— 請選擇 —</option>
+                <option value="反光紙">反光紙</option>
+                <option value="反光布">反光布</option>
+                <option value="流沙星星款">流沙星星款</option>
+                <option value="愛心款">愛心款</option>
+                <option value="其他">其他（備註說明）</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-row">
+              <label for="font-kr">韓文字體編號</label>
+              <input type="text" id="font-kr" name="韓文字體編號" placeholder="例如：3 號" />
+              <p class="hint">若不確定可以留白，我會依整體風格幫你搭。</p>
+            </div>
+            <div class="form-row">
+              <label for="font-jp">日文字體編號</label>
+              <input type="text" id="font-jp" name="日文字體編號" placeholder="例如：2 號" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <label>加購項目（可複選）</label>
+            <div class="addons-group">
+              <label><input type="checkbox" name="加購項目[]" value="動物耳">動物耳（黑 / 白）</label>
+              <label><input type="checkbox" name="加購項目[]" value="緞帶花邊">緞帶花邊</label>
+              <label><input type="checkbox" name="加購項目[]" value="閃粉泡沫紙">閃粉泡沫紙</label>
+              <label><input type="checkbox" name="加購項目[]" value="無加購">無加購</label>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <label for="note">其他備註</label>
+            <textarea id="note" name="備註"></textarea>
+            <p class="hint">例如：想搭配的顏色、是否需要急件、是否多人一起訂購…</p>
+          </div>
+
+          <div class="agree-row">
+            <label>
+              <input type="checkbox" name="已閱讀注意事項" value="yes" required />
+              我已完整閱讀本頁「注意事項」與「價目表」，可以接受手作商品與製作天數再送出表單。
+            </label>
+          </div>
+
+          <button type="submit" class="btn-submit">送出訂購資料 ✨</button>
+        </form>
+
+        <p class="order-note">
+          表單送出後如 2 天內未收到回覆，請主動透過 IG 再提醒我一次，避免信件跑到垃圾信件匣。
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 유유 / 姓名牌訂製 · Fan Support Nameplate Studio
+  </footer>
+</body>
+</html>
